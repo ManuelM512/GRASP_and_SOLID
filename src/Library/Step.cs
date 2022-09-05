@@ -26,8 +26,8 @@ namespace Full_GRASP_And_SOLID.Library
 
         public Equipment Equipment { get; set; }
 
-        public double StepCostUnit(){
-            double costo= this.Input.UnitCost+((this.Time/this.Quantity)*this.Equipment.HourlyCost);
+        public double StepCost(){
+            double costo = (this.Input.UnitCost*this.Quantity )+(this.Time*this.Equipment.HourlyCost);
             return costo;
         }
     }
