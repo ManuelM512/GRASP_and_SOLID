@@ -8,6 +8,7 @@ using System;
 using System.Collections;
 using System.Linq;
 using Full_GRASP_And_SOLID.Library;
+using System.Text;
 
 namespace Full_GRASP_And_SOLID
 {
@@ -18,12 +19,16 @@ namespace Full_GRASP_And_SOLID
         public static void Main(string[] args)
         {
             PopulateCatalogs();
+            StringBuilder txt;
 
             Recipe recipe = new Recipe();
             recipe.FinalProduct = Catalog.GetProduct("Café con leche");
             recipe.AddStep(new Step(Catalog.GetProduct("Café"), 100, Catalog.GetEquipment("Cafetera"), 120));
             recipe.AddStep(new Step(Catalog.GetProduct("Leche"), 200, Catalog.GetEquipment("Hervidor"), 60));
-            recipe.PrintRecipe();
+            //Aplique SRP para quitarle responsabilidades a Recipe, ahora devuelve el texto a imprimir, no lo imprime
+            txt= recipe.RecipeText();
+            ConsolePrinter printer = new ConsolePrinter(txt);
+
         }
 
         //Este método sí se dejó, ya que solo agrega y es algo que debería poder manejar el usuario desde aquí 
