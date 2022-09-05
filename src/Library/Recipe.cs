@@ -26,7 +26,7 @@ namespace Full_GRASP_And_SOLID.Library
             this.steps.Remove(step);
         }
 
-        public StringBuilder RecipeText()
+        public StringBuilder RecipeText() //Ya no imprime, sino que devuelve un string con lo que se debe imprimir
         {
             StringBuilder str = new StringBuilder();
             str.AppendLine($"Receta de {this.FinalProduct.Description}:");

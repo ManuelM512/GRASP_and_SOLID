@@ -26,6 +26,7 @@ namespace Full_GRASP_And_SOLID
             recipe.AddStep(new Step(Catalog.GetProduct("Café"), 100, Catalog.GetEquipment("Cafetera"), 120));
             recipe.AddStep(new Step(Catalog.GetProduct("Leche"), 200, Catalog.GetEquipment("Hervidor"), 60));
             //Aplique SRP para quitarle responsabilidades a Recipe, ahora devuelve el texto a imprimir, no lo imprime
+            //De esta manera, se puede imprimir en cualquier medio que se quiera
             txt= recipe.RecipeText();
             ConsolePrinter printer = new ConsolePrinter(txt);
 
