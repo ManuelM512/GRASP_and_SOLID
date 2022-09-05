@@ -14,7 +14,7 @@ namespace Full_GRASP_And_SOLID
     public class Program
     {
 
-        //Se movió todo lo relacionado a Catalogos a una clase creada para ello
+        //Se movió todo lo relacionado a Catalogos a una clase creada para ello, enfocandonos en aplicar SRP
         public static void Main(string[] args)
         {
             PopulateCatalogs();
