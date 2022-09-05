@@ -15,11 +15,11 @@ namespace Full_GRASP_And_SOLID
     public class Program
     {
 
-        //Se movió todo lo relacionado a Catalogos a una clase creada para ello, enfocandonos en aplicar SRP
+        //Se movió todo lo relacionado a Catálogos a una clase creada para ello, enfocándonos en aplicar SRP
         public static void Main(string[] args)
         {
             PopulateCatalogs();
-            StringBuilder txt;
+            string txtRecipe;
 
             Recipe recipe = new Recipe();
             recipe.FinalProduct = Catalog.GetProduct("Café con leche");
@@ -27,8 +27,8 @@ namespace Full_GRASP_And_SOLID
             recipe.AddStep(new Step(Catalog.GetProduct("Leche"), 200, Catalog.GetEquipment("Hervidor"), 60));
             //Aplique SRP para quitarle responsabilidades a Recipe, ahora devuelve el texto a imprimir, no lo imprime
             //De esta manera, se puede imprimir en cualquier medio que se quiera
-            txt= recipe.RecipeText();
-            ConsolePrinter printer = new ConsolePrinter(txt);
+            txtRecipe= recipe.RecipeText().ToString();
+            ConsolePrinter printer = new ConsolePrinter(txtRecipe);
 
         }
 

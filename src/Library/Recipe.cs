@@ -36,7 +36,7 @@ namespace Full_GRASP_And_SOLID.Library
                     $"usando '{step.Equipment.Description}' durante {step.Time}");
             }
             str.AppendLine($"El costo total de producción de un producto es {GetProductionCost()}");
-            return str;
+            return str; //Con esto se le quita una responsabilidad que podría hacerlo cambiar, respetando SRP
         }
 
         //Sumatoria del costo de cada paso. 
@@ -45,9 +45,10 @@ namespace Full_GRASP_And_SOLID.Library
         public double GetProductionCost(){
             double costoTotal=0;
             foreach (Step step in this.steps){
-                costoTotal+=step.StepCostUnit();
+                costoTotal+=step.StepCostUnit(); //Llama a un metodo de Step, que calcula el costo de la instancia
+                //Al recorrer cada paso de la receta, se incrementa la variable costoTotal en el costo del step actual
             }
-            return costoTotal;
+            return costoTotal; 
         }
     }
 }
